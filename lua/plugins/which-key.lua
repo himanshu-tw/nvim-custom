@@ -1,29 +1,62 @@
 return {
-	"folke/which-key.nvim",
-	event = "VeryLazy",
+    "folke/which-key.nvim",
+    event = "VeryLazy",
 
-	opts = {
-		preset = "modern",
+    opts = {
+        preset = "modern",
+        delay = 0,
 
-		delay = 0,
+        plugins = {
+            marks = true,
+            registers = true,
+            spelling = {
+                enabled = true,
+                suggestions = 20,
+            },
+        },
 
-		icons = {
-			mappings = true,
-		},
+        win = {
+            border = "rounded",
+            padding = { 1, 2 },
+            title = false,
+            zindex = 1000,
+        },
 
-		win = {
-			border = "rounded",
-			padding = { 1, 2 },
-		},
+        layout = {
+            width = {
+                min = 24,
+                max = 40,
+            },
+            spacing = 4,
+        },
 
-		layout = {
-			width = {
-				min = 20,
-			},
-			spacing = 4,
-		},
+        icons = {
+            breadcrumb = "»",
+            separator = "➜",
+            group = "+",
+        },
 
-		show_help = true,
-		show_keys = true,
-	},
+        show_help = true,
+        show_keys = true,
+
+        sort = { "local", "order", "group", "alphanum", "mod" },
+
+        spec = {},
+    },
+
+    config = function(_, opts)
+        local wk = require("which-key")
+
+        wk.setup(opts)
+
+        wk.add({
+            { "<leader>f", group = "Find" },
+            { "<leader>g", group = "Git" },
+            { "<leader>b", group = "Buffers" },
+            { "<leader>c", group = "Code" },
+            { "<leader>t", group = "Toggle" },
+            { "<leader>w", group = "Window" },
+            { "<leader>q", group = "Quit" },
+        })
+    end,
 }

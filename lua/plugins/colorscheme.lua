@@ -3,12 +3,19 @@ return {
   lazy = false,
   priority = 1000,
   opts = {
-    style = "night", -- Set the style to night
-    transparent = false, -- Set to true if you want a transparent background
+      style = "night",
+      transparent = false,
+      styles = {
+          comments = { italic = true },
+          keywords = { italic = true },
+          sidebars = "dark",
+          floats = "dark",
+      },
   },
+
   config = function(_, opts)
-    require("tokyonight").setup(opts)
-    vim.cmd("colorscheme tokyonight")
+      require("tokyonight").setup(opts)
+      vim.cmd.colorscheme("tokyonight")
   end,
 }
 
