@@ -1,62 +1,47 @@
 return {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
+	"folke/which-key.nvim",
+	event = "VeryLazy",
 
-    opts = {
-        preset = "modern",
-        delay = 0,
+	opts = {
+		preset = "helix",
+		delay = 0,
 
-        plugins = {
-            marks = true,
-            registers = true,
-            spelling = {
-                enabled = true,
-                suggestions = 20,
-            },
-        },
+		plugins = {
+			marks = true,
+			registers = true,
+			spelling = {
+				enabled = true,
+				suggestions = 20,
+			},
+		},
 
-        win = {
-            border = "rounded",
-            padding = { 1, 2 },
-            title = false,
-            zindex = 1000,
-        },
+		icons = {
+			breadcrumb = "»",
+			separator = "➜",
+			group = "+",
+		},
 
-        layout = {
-            width = {
-                min = 24,
-                max = 40,
-            },
-            spacing = 4,
-        },
+		show_help = true,
+		show_keys = true,
 
-        icons = {
-            breadcrumb = "»",
-            separator = "➜",
-            group = "+",
-        },
+		sort = { "local", "order", "group", "alphanum", "mod" },
 
-        show_help = true,
-        show_keys = true,
+		spec = {},
+	},
 
-        sort = { "local", "order", "group", "alphanum", "mod" },
+	config = function(_, opts)
+		local wk = require("which-key")
 
-        spec = {},
-    },
+		wk.setup(opts)
 
-    config = function(_, opts)
-        local wk = require("which-key")
-
-        wk.setup(opts)
-
-        wk.add({
-            { "<leader>f", group = "Find" },
-            { "<leader>g", group = "Git" },
-            { "<leader>b", group = "Buffers" },
-            { "<leader>c", group = "Code" },
-            { "<leader>t", group = "Toggle" },
-            { "<leader>w", group = "Window" },
-            { "<leader>q", group = "Quit" },
-        })
-    end,
+		wk.add({
+			{ "<leader>f", group = "Find" },
+			{ "<leader>g", group = "Git" },
+			{ "<leader>b", group = "Buffers" },
+			{ "<leader>c", group = "Code" },
+			{ "<leader>t", group = "Toggle" },
+			{ "<leader>w", group = "Window" },
+			{ "<leader>q", group = "Quit" },
+		})
+	end,
 }
