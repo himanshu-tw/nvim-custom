@@ -13,9 +13,18 @@ return {
 	},
 
 	opts = {
-		keymap = {
-			preset = "default",
-		},
+        keymap = {
+            preset = "none",
+
+            ["<Tab>"] = { "select_next", "fallback" },
+            ["<S-Tab>"] = { "select_prev", "fallback" },
+
+            ["<CR>"] = { "accept", "fallback" },
+
+            ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+
+            ["<Esc>"] = { "hide", "fallback" },
+        },
 
 		appearance = {
 			nerd_font_variant = "mono",
