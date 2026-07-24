@@ -1,16 +1,11 @@
 return {
-	"catppuccin/nvim",
-	name = "catppuccin",
-	lazy = false,
-	priority = 1000,
-
-	opts = {
-		flavour = "frappe",
-		transparent_background = true,
-	},
-
-	config = function(_, opts)
-		require("catppuccin").setup(opts)
-		vim.cmd.colorscheme("catppuccin")
-	end,
+  "sainnhe/everforest",
+  name = "everforest",
+  lazy = false,
+  priority = 1000,
+  config = function(_, opts)
+    -- Optional configuration example
+    require("everforest").setup(opts)
+    vim.cmd.colorscheme("everforest")
+  end,
 }
